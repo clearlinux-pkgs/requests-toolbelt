@@ -4,7 +4,7 @@
 #
 Name     : requests-toolbelt
 Version  : 0.8.0
-Release  : 1
+Release  : 2
 URL      : https://files.pythonhosted.org/packages/86/f9/e80fa23edca6c554f1994040064760c12b51daff54b55f9e379e899cd3d4/requests-toolbelt-0.8.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/86/f9/e80fa23edca6c554f1994040064760c12b51daff54b55f9e379e899cd3d4/requests-toolbelt-0.8.0.tar.gz
 Summary  : A utility belt for advanced users of python-requests
