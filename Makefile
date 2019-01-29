@@ -1,5 +1,5 @@
 PKG_NAME := requests-toolbelt
-URL = https://files.pythonhosted.org/packages/86/f9/e80fa23edca6c554f1994040064760c12b51daff54b55f9e379e899cd3d4/requests-toolbelt-0.8.0.tar.gz
+URL = https://files.pythonhosted.org/packages/83/c8/a4ea1e0741cc9853732e09e33ce1af2b77149abe9d6c0a6635f1709889a1/requests-toolbelt-0.9.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
