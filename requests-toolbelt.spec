@@ -4,7 +4,7 @@
 #
 Name     : requests-toolbelt
 Version  : 0.9.1
-Release  : 9
+Release  : 10
 URL      : https://files.pythonhosted.org/packages/28/30/7bf7e5071081f761766d46820e52f4b16c8a08fef02d2eb4682ca7534310/requests-toolbelt-0.9.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/28/30/7bf7e5071081f761766d46820e52f4b16c8a08fef02d2eb4682ca7534310/requests-toolbelt-0.9.1.tar.gz
 Summary  : A utility belt for advanced users of python-requests
@@ -18,6 +18,7 @@ BuildRequires : buildreq-distutils3
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
+BuildRequires : requests
 BuildRequires : tox
 BuildRequires : virtualenv
 
@@ -50,6 +51,7 @@ python components for the requests-toolbelt package.
 Summary: python3 components for the requests-toolbelt package.
 Group: Default
 Requires: python3-core
+Provides: pypi(requests-toolbelt)
 
 %description python3
 python3 components for the requests-toolbelt package.
@@ -57,20 +59,28 @@ python3 components for the requests-toolbelt package.
 
 %prep
 %setup -q -n requests-toolbelt-0.9.1
+cd %{_builddir}/requests-toolbelt-0.9.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1548817780
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1583219715
+# -Werror is for werrorists
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/requests-toolbelt
-cp LICENSE %{buildroot}/usr/share/package-licenses/requests-toolbelt/LICENSE
+cp %{_builddir}/requests-toolbelt-0.9.1/LICENSE %{buildroot}/usr/share/package-licenses/requests-toolbelt/c5612a30a961a1a18c1196486266e714732cd843
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -81,7 +91,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/requests-toolbelt/LICENSE
+/usr/share/package-licenses/requests-toolbelt/c5612a30a961a1a18c1196486266e714732cd843
 
 %files python
 %defattr(-,root,root,-)
