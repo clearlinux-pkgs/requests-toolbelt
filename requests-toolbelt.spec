@@ -4,7 +4,7 @@
 #
 Name     : requests-toolbelt
 Version  : 0.9.1
-Release  : 10
+Release  : 11
 URL      : https://files.pythonhosted.org/packages/28/30/7bf7e5071081f761766d46820e52f4b16c8a08fef02d2eb4682ca7534310/requests-toolbelt-0.9.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/28/30/7bf7e5071081f761766d46820e52f4b16c8a08fef02d2eb4682ca7534310/requests-toolbelt-0.9.1.tar.gz
 Summary  : A utility belt for advanced users of python-requests
@@ -51,7 +51,8 @@ python components for the requests-toolbelt package.
 Summary: python3 components for the requests-toolbelt package.
 Group: Default
 Requires: python3-core
-Provides: pypi(requests-toolbelt)
+Provides: pypi(requests_toolbelt)
+Requires: pypi(requests)
 
 %description python3
 python3 components for the requests-toolbelt package.
@@ -66,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583219715
+export SOURCE_DATE_EPOCH=1583455607
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
